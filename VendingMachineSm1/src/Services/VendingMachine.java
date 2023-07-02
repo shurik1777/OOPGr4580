@@ -4,13 +4,13 @@ import java.util.List;
 //
 import Domen.Product;
 
-public class VandingMachine {
+public class VendingMachine {
     private Holder holder;
     private CoinDispenser dispenser;
     private List<Product> assort;
     private Display display;
 
-    public VandingMachine(Holder holder, CoinDispenser dispenser, List<Product> assort, Display display) {
+    public VendingMachine(Holder holder, CoinDispenser dispenser, List<Product> assort, Display display) {
         this.holder = holder;
         this.dispenser = dispenser;
         this.assort = assort;

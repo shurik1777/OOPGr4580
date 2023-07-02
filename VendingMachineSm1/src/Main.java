@@ -8,19 +8,18 @@ import Domen.Product;
 import Services.CoinDispenser;
 import Services.Display;
 import Services.Holder;
-import Services.ProductInterface;
-import Services.VandingMachine;
-
-import javax.swing.*;
+import Services.VendingMachine;
 
 
 public class Main {
     public static void main(String[] args) {
-
+        // Создание ассортимента в Торговом автомате
         List<Product> assort = new ArrayList<>();
+        // наполнение продуктами
         Product item1 = new Product(100, 1, "Lays",1);
         Product item2 = new Product(100, 1, "Cola",2);
         Product item3 = new Bottle(150, 3, "Mineral Water", 101, (float) 1.5);
+        // домашнее задание
         Product item4 = new HotDrink(180, 4, "Tea", 102, 32);
         Product item5 = new HotDrinkNext(200, 5, "Coffee+Milk", 103, 32,true);
         Product item6 = new HotDrinkNext(180, 6, "Coffee", 104, 32,false);
@@ -36,15 +35,16 @@ public class Main {
         CoinDispenser coinDesp = new CoinDispenser(0);
         Display disp = new Display();
 
-        VandingMachine venMachine = new VandingMachine(hold1, coinDesp, assort, disp);
+        VendingMachine venMachine = new VendingMachine(hold1, coinDesp, assort, disp);
 
+        // вывод на печать
         for(Product prod: venMachine.getProducts())
         {
             System.out.println(prod);
         }
 //        MainFrame myFrame = new MainFrame();
 //        myFrame.initialize();
-//
+// Попытка собрать через JFrame
 //        Holder hold1 = new Holder(4, 4);
 //        CoinDispenser coinDesp = new CoinDispenser(0);
 //        Display disp = new Display();
