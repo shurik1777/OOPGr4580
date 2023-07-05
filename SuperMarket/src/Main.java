@@ -7,22 +7,23 @@ public class Main {
         // Создание экземпляра супермаркета
         Market magnit = new Market();
         // Создание клиентов супермаркета
-//        iActorBehaviour client1 = new OrdinaryClient("Boris");
-//        iActorBehaviour client2 = new SpecialClient("prezident", 1001);
-//        iActorBehaviour p = new PensionerClient("Sergey Nikolay",1111);
-//        iActorBehaviour tax = new TaxService();
+        iActorBehaviour client1 = new OrdinaryClient("Boris");
+        iActorBehaviour client2 = new SpecialClient("prezident", 1001);
+        iActorBehaviour p = new PensionerClient("Sergey Nikolay", 1111);
+        iActorBehaviour tax = new TaxService();
         iActorBehaviour prom = new PromotionalClient("Vanya", "Skidka5%", 1);
         iActorBehaviour prom1 = new PromotionalClient("Genya", "Skidka5%", 2);
         iActorBehaviour prom2 = new PromotionalClient("Taras", "Skidka5%", 3);
-//        // Ниже два клиента которым товар не должны выдать максимум превышен
+        // Ниже два клиента которым товар не должны выдать максимум превышен
         iActorBehaviour prom3 = new PromotionalClient("Erema", "Skidka5%", 4);
         iActorBehaviour prom4 = new PromotionalClient("Ivan", "Skidka5%", 5);
 
 
         // Принятие клиентов в супермаркет
-//        magnit.acceptToMarket(client1);
-//        magnit.acceptToMarket(client2);
-//        magnit.acceptToMarket(p);
+        magnit.acceptToMarket(client1);
+        magnit.acceptToMarket(client2);
+        magnit.acceptToMarket(p);
+        magnit.acceptToMarket(tax);
         magnit.acceptToMarket(prom);
         magnit.acceptToMarket(prom1);
         magnit.acceptToMarket(prom2);
@@ -31,11 +32,5 @@ public class Main {
 
         // Обновление состояния супермаркета
         magnit.update();
-        // По первому заданию с возвратами
-//        Market market = new Market();
-//        PromotionalClient client = new PromotionalClient("Иван", "Летняя распродажа", 123);
-//        market.acceptToMarket(client);
-//        client.returnOrder(market);
-//        market.closeLogFile();
     }
 }

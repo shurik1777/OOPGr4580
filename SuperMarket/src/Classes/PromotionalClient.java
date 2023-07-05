@@ -1,15 +1,16 @@
 package Classes;
 
-import Interfaces.iActorBehaviour;
+import Interfaces.iReturnOrder;
 
 /**
  * Класс для описания акционного клиента.
  */
-public class PromotionalClient extends Actor implements iActorBehaviour {
+public class PromotionalClient extends Actor implements iReturnOrder {
 
     private static int participantCount;
     private String promotionName;
     private int clientId;
+
 
     /**
      * Конструктор класса PromotionalClient.
@@ -25,32 +26,32 @@ public class PromotionalClient extends Actor implements iActorBehaviour {
         participantCount++;
     }
 
-    /**
-     * Получить количество участников акции.
-     *
-     * @return количество участников акции
-     */
-    public static int getParticipantCount() {
-        return participantCount;
-    }
-
-    /**
-     * Получить название акции.
-     *
-     * @return название акции
-     */
-    public String getPromotionName() {
-        return promotionName;
-    }
-
-    /**
-     * Получить идентификатор клиента.
-     *
-     * @return идентификатор клиента
-     */
-    public int getClientId() {
-        return clientId;
-    }
+//    /**
+//     * Получить количество участников акции.
+//     *
+//     * @return количество участников акции
+//     */
+//    public static int acceptToMarket() {
+//        return participantCount;
+//    }
+//
+//    /**
+//     * Получить название акции.
+//     *
+//     * @return название акции
+//     */
+//    public String getPromotionName() {
+//        return promotionName;
+//    }
+//
+//    /**
+//     * Получить идентификатор клиента.
+//     *
+//     * @return идентификатор клиента
+//     */
+//    public int getClientId() {
+//        return clientId;
+//    }
 
 
     /**
@@ -61,65 +62,86 @@ public class PromotionalClient extends Actor implements iActorBehaviour {
     public String getName() {
         return name;
     }
-
     /**
-     * Проверить возможность заказа.
+     * Проверяет, делает ли клиент заказ.
      *
-     * @return true, если акционный клиент может делать заказы, в противном случае - false
-     */
-    @Override
-    public boolean isTakeOrder() {
-        return isTakeOrder;
-    }
-
-    /**
-     * Проверить возможность создания заказа.
-     *
-     * @return true, если акционный клиент может создавать заказы, в противном случае - false
+     * @return true, если клиент делает заказ, в противном случае - false.
      */
     @Override
     public boolean isMakeOrder() {
-        return isMakeOrder;
+        return super.isMakeOrder;
     }
-
     /**
-     * Установить возможность заказа для акционного клиента.
+     * Проверяет, берет ли клиент заказ.
      *
-     * @param takeOrder значение возможности заказа (true - может делать заказы, false - не может)
+     * @return true, если клиент берет заказ, в противном случае - false.
      */
     @Override
-    public void setTakeOrder(boolean takeOrder) {
-        isTakeOrder = takeOrder;
-    }
+    public boolean isTakeOrder() {
+        return super.isTakeOrder;
 
+    }
     /**
-     * Установить возможность создания заказа для акционного клиента.
+     * Устанавливает информацию о том, делает ли клиент заказ.
      *
-     * @param makeOrder значение возможности создания заказа (true - может создавать заказы, false - не может)
+     * @param makeOrder true, если клиент делает заказ, в противном случае - false.
      */
     @Override
     public void setMakeOrder(boolean makeOrder) {
-        isMakeOrder = makeOrder;
+        super.isMakeOrder = makeOrder;
     }
-
     /**
-     * Получить объект акционного клиента.
+     * Устанавливает информацию о том, берет ли клиент заказ.
      *
-     * @return объект акционного клиента
+     * @param takeOrder true, если клиент берет заказ, в противном случае - false.
      */
     @Override
+    public void setTakeOrder(boolean takeOrder) {
+        super.isTakeOrder = takeOrder;
+    }
+    /**
+     * Проверяет, делает ли клиент возврат заказа.
+     *
+     * @return true, если клиент делает возврат заказа, в противном случае - false.
+     */
+    @Override
+    public boolean isMakeReturnOrder() {
+        return super.isMakeReturnOrder;
+    }
+    /**
+     * Проверяет, производят ли клиенту возврат оплаты.
+     *
+     * @return true, если клиенту производят возврат оплаты, в противном случае - false.
+     */
+    @Override
+    public boolean isMakePaid() {
+        return super.isMakePaid;
+    }
+    /**
+     * Устанавливает информацию о том, делает ли клиент возврат заказа.
+     *
+     * @param makeReturnOrder true, если клиент делает возврат заказа, в противном случае - false.
+     */
+    @Override
+    public void setMakeReturnOrder(boolean makeReturnOrder) {
+        super.isMakeReturnOrder = makeReturnOrder;
+    }
+    /**
+     * Устанавливает информацию о том, производят ли клиенту возврат оплаты.
+     *
+     * @param makePaid true, если клиенту производят возврат оплаты, в противном случае - false.
+     */
+    @Override
+    public void setMakePaid(boolean makePaid) {
+        super.isMakePaid = makePaid;
+    }
+    /**
+     * Возвращает экземпляр класса Actor, который является родительским классом для PromotionalClient
+     *
+     * @return экземпляр класса Actor.
+     */
     public Actor getActor() {
         return this;
-    }
-
-    /**
-     * Возврат заказа акционным клиентом.
-     *
-     * @param market рынок, на котором происходит возврат заказа
-     */
-    public void returnOrder(Market market) {
-        // Логика возврата заказа клиентом
-        market.acceptToMarket(this);
     }
 
 }
