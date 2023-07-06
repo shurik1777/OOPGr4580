@@ -1,6 +1,7 @@
 import Classes.*;
 
 import Interfaces.iActorBehaviour;
+import Interfaces.iReturnOrder;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -17,7 +18,6 @@ public class Main {
         // Ниже два клиента которым товар не должны выдать максимум превышен
         iActorBehaviour prom3 = new PromotionalClient("Erema", "Skidka5%", 4);
         iActorBehaviour prom4 = new PromotionalClient("Ivan", "Skidka5%", 5);
-
 
         // Принятие клиентов в супермаркет
         magnit.acceptToMarket(client1);
